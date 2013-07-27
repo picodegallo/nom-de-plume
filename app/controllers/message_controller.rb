@@ -2,12 +2,11 @@ class MessageController < ApplicationController
   def receive
     
     @user = User.where(phone_number: params["From"]).first
+    next_user = (User.all - [@user] - [User.first]).sample
+    puts next_user.inspect
 
-    Twilio::SMS.create :to => params["From"], :from => ENV["TWILIO_NUMBER"],
-                       :body => "Thanks for participating"
-
-    # TODO if some rando texts in, reject it
-
+    # Twilio::SMS.create :to => params["From"], :from => ENV["TWILIO_NUMBER"],
+    #                    :body => "Thanks for participating"
 
     @story = Story.last
     @story.lines.build(content: params["Body"], user: @user)    
@@ -18,14 +17,19 @@ class MessageController < ApplicationController
       @new_story.lines.build(content: first_line, user: User.find(1))
       @new_story.save
 
-      # we need to pick a random user to write the nxt line
-      # txt them first_line
-      # ask for a response
-      Story.create #How do we text someone a new line? good question
+      Twilio::SMS.create :to => next_user.phone_number, :from => ENV["TWILIO_NUMBER"],
+                         :body => "Please continue this story: #{first_line}"
+      Story.create
     else
-    	next_phone_number = next_user(@story.lines.count, @story).phone_number
+
+      Twilio::SMS.create :to => next_user.phone_number, :from => ENV["TWILIO_NUMBER"],
+                         :body => "Please continue this story: #{params['Body']}"
+
+    	# num_of_lines = @story.lines.count
+    	# next_phone_number = @story.next_user(num_of_lines).phone_number
     	#Twilio call
     end
+    
     @story.save
   end
 end

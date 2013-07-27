@@ -5,11 +5,12 @@ plume = User.create(
   :password_confirmation => "12345"
   )
 
-sagar = User.create(
-  :name => "Sagar",
-  :email => "sgrshah@gmail.com",
+rlstine = User.create(
+  :name => "RL Stine",
+  :email => "rlstine@flatironschool.com",
   :password =>'12345',
-  :password_confirmation => '12345'
+  :password_confirmation => '12345',
+  :phone_number => "+16176407951"
   )
 
 jonathan = User.create(
