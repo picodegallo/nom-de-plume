@@ -1,3 +1,10 @@
+plume = User.create(
+  :name => "Admin",
+  :email => "nomdeplume@flatironschool.com",
+  :password => "12345",
+  :password_confirmation => "12345"
+  )
+
 sagar = User.create(
   :name => "Sagar",
   :email => "sgrshah@gmail.com",
