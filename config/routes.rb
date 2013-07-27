@@ -3,8 +3,8 @@ NomDePlume::Application.routes.draw do
 
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'login', to: 'sessions#new', as: 'login'
-
-  resources :sessions, :only => [:new, :create, :destroy]
+  post '/sessions', to: 'sessions#create', as: 'sessions'
+  delete '/sessions/:id', to: 'sessions#destroy'
 
   resources :users
 
@@ -60,7 +60,7 @@ NomDePlume::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'stories#index'
 
   # See how all your routes lay out with "rake routes"
 

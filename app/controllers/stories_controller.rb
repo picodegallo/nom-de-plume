@@ -3,7 +3,7 @@ class StoriesController < ApplicationController
   # GET /stories.json
   def index
     @stories = Story.all
-
+    # debugger
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @stories }
