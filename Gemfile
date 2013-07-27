@@ -21,7 +21,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'localtunnel'
+gem 'localtunnel' #so twilio doesn't get mad
+gem 'twilio-ruby' #offical twilio gem
+gem 'sms-rb' #send easy sms msgs with twilio
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
