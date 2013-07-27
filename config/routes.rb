@@ -1,4 +1,6 @@
 NomDePlume::Application.routes.draw do
+  get "message/receive"
+
   get 'signup', to: 'users#new', as: 'signup'
 
   get 'logout', to: 'sessions#destroy', as: 'logout'
@@ -9,6 +11,8 @@ NomDePlume::Application.routes.draw do
   resources :users
 
   resources :stories
+
+  get '/receive' => 'message#receive'
 
 
   # The priority is based upon order of creation:

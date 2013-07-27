@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'localtunnel' #so twilio doesn't get mad
 gem 'twilio-ruby' #offical twilio gem
 gem 'sms-rb' #send easy sms msgs with twilio
+gem 'thin'
 
 
 # To use ActiveModel has_secure_password
