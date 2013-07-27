@@ -21,6 +21,10 @@ class MessageController < ApplicationController
       # we need to pick a random user to write the nxt line
       # txt them first_line
       # ask for a response
+      Story.create #How do we text someone a new line? good question
+    else
+    	next_phone_number = next_user(@story.lines.count, @story).phone_number
+    	#Twilio call
     end
     @story.save
   end
