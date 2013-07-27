@@ -13,3 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+setInterval(function() {
+  console.log("refreshing...");
+  location.reload();
+}, 5000);
