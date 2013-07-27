@@ -9,7 +9,7 @@ class MessageController < ApplicationController
     if params["Body"].match(/THE END$/)
       Story.create #How do we text someone a new line? good question
     else
-    	next_person = next_user(@story.lines.count, @story).phone_number
+    	next_phone_number = next_user(@story.lines.count, @story).phone_number
     	#Twilio call
     end
   end
