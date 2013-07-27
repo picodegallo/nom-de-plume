@@ -11,7 +11,43 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <h2>New User</h2>
+  <hr>
+
+  <fieldset>
+
+    <p>
+      <%= f.label :name  %>
+      <%= f.text_field :name %>
+    </p>
+
+    <div class="clearfix"></div>
+    
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    
+    <div class="clearfix"></div>
+
+    <p>
+      <%= f.label :phone_number%>
+      <%= f.text_field :phone_number %>
+    </p>
+
+    <div class="clearfix"></div>
+
+    <p>
+      <%= f.label :password%>
+      <%= f.text_field :password %>
+    </p>
+
+    <div class="clearfix"></div>
+
+    <p>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </p>
+
+    </fieldset>
 <% end %>
