@@ -1,6 +1,12 @@
 NomDePlume::Application.routes.draw do
-  resources :users
+  get 'signup', to: 'users#new', as: 'signup'
 
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'login', to: 'sessions#new', as: 'login'
+
+  resources :sessions, :only => [:new, :create, :destroy]
+
+  resources :users
 
   resources :stories
 
