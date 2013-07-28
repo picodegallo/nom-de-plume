@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  # include ActiveModel::Validations
+
   attr_accessible :name, :phone_number, :password, :password_confirmation, :email
   has_many :stories, :through => :user_stories
   has_many :user_stories
@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :password, :email, :phone_number
   validates_uniqueness_of :email, :phone_number
   validates :phone_number, :format => { :with => /\+\d{11}/, :on => :create, :message => "is invalid. Please include the area code" }
-  # add message if validate fails
+  validates :email,        :format => { :with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/, :on => :create}
+  
   before_validation(:on => :create) do
     num = phone_number.gsub(/\D/, '')
     num.prepend("1") unless num.length == 11
