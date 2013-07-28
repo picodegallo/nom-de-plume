@@ -2,7 +2,8 @@ plume = User.create(
   :name => "Admin",
   :email => "nomdeplume@flatironschool.com",
   :password => "12345",
-  :password_confirmation => "12345"
+  :password_confirmation => "12345",
+  :phone_number => "555 555 5555"
   )
 
 rlstine = User.create(
