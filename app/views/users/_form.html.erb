@@ -1,7 +1,7 @@
 <%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2>Some errors prohibited this user from being saved:</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -16,35 +16,35 @@
   <div class="form-group">
     <%= f.label :name, :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
-      <%= f.text_field :name, :class => "form-control" %>
+      <%= f.text_field :name, :class => "form-control", :required => true %>
     </div>   
   </div>
 
   <div class="form-group">
     <%= f.label :email, :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
-      <%= f.text_field :email, :class => "form-control" %>
+      <%= f.text_field :email, :class => "form-control", :required => true %>
     </div>
   </div>
 
    <div class="form-group">
     <%= f.label :phone_number, :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
-      <%= f.telephone_field :phone_number, :class => "form-control" %>
+      <%= f.telephone_field :phone_number, :class => "form-control", :required => true %>
     </div>
   </div>
 
    <div class="form-group">
     <%= f.label :password, :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
-      <%= f.password_field :password, :class => "form-control" %>
+      <%= f.password_field :password, :class => "form-control", :required => true %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :password_confirmation, :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
-      <%= f.password_field :password_confirmation, :class => "form-control" %>
+      <%= f.password_field :password_confirmation, :class => "form-control", :required => true %>
       <br>
       <%= f.submit "Sign up", :class => "btn btn-default" %>
    </div>
