@@ -12,6 +12,16 @@ class Story < ActiveRecord::Base
                      :body => "Continue the story! Or, you can type these commands: PASS to skip your turn. THE END to end current story"
   end
 
+  def sign_up_message(phone_number)
+    Twilio::SMS.create :to => phone_number, :from => ENV["TWILIO_NUMBER"],
+                     :body => "Oops, looks like you're not registered. Sign up at LOCALHOST: 3000"
+  end
+
+  def out_of_turn_message(user) 
+    Twilio::SMS.create :to => user.phone_number, :from => ENV["TWILIO_NUMBER"],
+                     :body => "It's not your turn!"
+  end
+
   def end
     self.ended_at = Time.now  # does this work?
   end
@@ -21,6 +31,7 @@ class Story < ActiveRecord::Base
     first_line = Line.random_opening_line
     @new_story.lines.create(content: first_line, user: User.find(1))
     @new_story.request_next_line(first_line, next_user)
+    @new_story.next_user_id = next_user.id
   end
 
 end

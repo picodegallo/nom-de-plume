@@ -39,4 +39,7 @@ simone = User.create(
 
 story = Story.new
 story.lines.build(content: Line.random_opening_line, user: ernest)
+story.next_user_id = 2
 story.save
+Twilio::SMS.create :to => "+16176407951", :from => ENV["TWILIO_NUMBER"],
+                   :body => story.lines.first.content

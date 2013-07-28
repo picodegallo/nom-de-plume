@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
 
   #http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html#method-i-has_secure_password
   has_secure_password
+
+  def out_of_turn?(story)
+  	!(self.id == story.next_user_id)
+  end
+
 end
