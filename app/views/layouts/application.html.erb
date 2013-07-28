@@ -27,20 +27,26 @@
         <ul class="nav navbar-nav">
           <li><%= link_to "Stories", :root %></li>
           <li><%= link_to "Users", users_path %></li>
-          <% if session[:user_id] %>
-            <li><%= link_to "Login", login_path %></li>
-          <% else %>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+          <% if current_user %>
             <li><%= link_to "Logout", logout_path %></li>
+            <p class="navbar-text pull-right"><%= current_user.name %></p>
+          <% else %>
+            <li><%= link_to "Login", login_path %></li>
+            <li><%= link_to "Sign up", new_user_path %></li>
           <% end %>
         </ul>
       </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
   </div><!-- /.navbar -->
 
+
+
   <div class="row">
     <div class="col-12">
       <div class="jumbotron">
-        <h2>Text in at <%= ENV["TWILIO_NUMBER"] %></h2>
+        <h2>Text in at (646) 863-5311</h2>
       </div>
     </div>
     
