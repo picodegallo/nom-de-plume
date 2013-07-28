@@ -1,5 +1,7 @@
 # nom de plume
 
+## TODOS
+
 * type HELP for a list of commands
 * give list of commands at registration
 * if some rando texts in, reject it
