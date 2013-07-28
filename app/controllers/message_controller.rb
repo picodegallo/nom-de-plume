@@ -22,6 +22,12 @@ class MessageController < ApplicationController
     else
       @story.request_next_line(last_line, next_user)
     end
-      @story.save
+    
+    @story.save
+
+    message = {:channel => "/receive", :data => @line.content}
+    uri = URI.parse("http://localhost:9292/faye")
+    Net::HTTP.post_form(uri, :message => message.to_json)
+
   end
 end

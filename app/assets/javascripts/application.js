@@ -21,7 +21,7 @@
 
 $(function() {
   var faye = new Faye.Client('http://localhost:9292/faye');
-    faye.subscribe('/receive', function (data) {
-    alert(data);
+  faye.subscribe('/receive', function (data) {
+    $("<span class='line'>" + data + "</span>").appendTo(".story-inner");
   });
 });

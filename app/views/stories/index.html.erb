@@ -12,9 +12,10 @@
         <div class="panel-heading">
           <h3 class="panel-title">story started <%= time_ago_in_words story.created_at %> ago</h3>
         </div>
-        <div>
+        
+        <div class="story-inner">
           <% story.lines.each do |line| %>
-            <span><%= line.content %></span>
+            <span class='line'><%= line.content %></span>
           <% end %>
         </div>
         
