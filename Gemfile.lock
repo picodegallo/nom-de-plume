@@ -28,6 +28,7 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    addressable (2.3.5)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
@@ -39,6 +40,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     columnize (0.3.6)
+    cookiejar (0.3.0)
     crack (0.3.2)
     daemons (1.1.9)
     debugger (1.6.1)
@@ -47,14 +49,33 @@ GEM
       debugger-ruby_core_source (~> 1.2.3)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.3)
+    em-http-request (1.1.0)
+      addressable (>= 2.3.4)
+      cookiejar
+      em-socksify (>= 0.3)
+      eventmachine (>= 1.0.3)
+      http_parser.rb (>= 0.6.0.beta.2)
+    em-socksify (0.3.0)
+      eventmachine (>= 1.0.0.beta.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    faye (0.8.9)
+      cookiejar (>= 0.3.0)
+      em-http-request (>= 0.3.0)
+      eventmachine (>= 0.12.0)
+      faye-websocket (>= 0.4.0)
+      rack (>= 1.0.0)
+      yajl-ruby (>= 1.0.0)
+    faye-websocket (0.6.2)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.2.0)
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
     hike (1.2.3)
+    http_parser.rb (0.6.0.beta.2)
     httparty (0.10.2)
       multi_json (~> 1.0)
       multi_xml (>= 0.5.2)
@@ -136,6 +157,8 @@ GEM
     uglifier (2.1.2)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    websocket-driver (0.2.1)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -144,6 +167,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.2.1)
   debugger
+  faye
   figaro
   jquery-rails
   localtunnel

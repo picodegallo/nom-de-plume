@@ -1,6 +1,12 @@
 <h1>Editing story</h1>
 
-<%= render 'form' %>
+<%#= render 'form' %>
+
+<div id="story">
+  <% Story.last.lines.each do |line| %>
+    <span><%= line.content %></span>    
+  <% end %>
+</div>
 
 <%= link_to 'Show', @story %> |
 <%= link_to 'Back', stories_path %>

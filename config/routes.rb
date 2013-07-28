@@ -14,7 +14,7 @@ NomDePlume::Application.routes.draw do
 
   resources :stories
 
-  get '/receive' => 'message#receive'
+  post '/receive' => 'message#receive'
 
 
   # The priority is based upon order of creation:

@@ -14,7 +14,14 @@
 //= require jquery_ujs
 //= require_tree .
 
-setInterval(function() {
-  console.log("refreshing...");
-  location.reload();
-}, 5000);
+// setInterval(function() {
+//   console.log("refreshing...");
+//   location.reload();
+// }, 5000);
+
+$(function() {
+  var faye = new Faye.Client('http://localhost:9292/faye');
+    faye.subscribe('/receive', function (data) {
+    alert(data);
+  });
+});
