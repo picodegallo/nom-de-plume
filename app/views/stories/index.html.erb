@@ -1,10 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing stories</h1>
-<p>Logged in as: <%= current_user.name if current_user%></p>
-
-<h2>Text in at <%= ENV["TWILIO_NUMBER"] %></h2>
-
 
 <div class="stories">
 
@@ -12,16 +7,20 @@
     
     <div class="story">
 
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">story started <%= time_ago_in_words story.created_at %> ago</h3>
+        </div>
         <% story.lines.each do |line| %>
           <%= line.content %>
         <% end %>
-      
-      <br>
-      <%= link_to 'Show', story %> |
-      <%= link_to 'Edit', edit_story_path(story) %> |
-      <%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-
+        <br>
+        <div class="btn-group">
+          <%= link_to 'Show', story, :class => "btn btn-info" %>
+          <%= link_to 'Edit', edit_story_path(story), :class => "btn btn-warning" %>
+          <%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+        </div>
+      </div>
 
 
     </div>
@@ -31,4 +30,4 @@
 
 </div>
 
-<%= link_to 'New Story', new_story_path %>
+<%= link_to 'New Story', new_story_path, :class => "btn btn-primary" %>

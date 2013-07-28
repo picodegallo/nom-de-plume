@@ -38,5 +38,5 @@ simone = User.create(
   )
 
 story = Story.new
-story.lines.build(content: "Once upon a time...", user: ernest)
+story.lines.build(content: Line.random_opening_line, user: ernest)
 story.save
