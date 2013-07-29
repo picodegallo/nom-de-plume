@@ -1,0 +1,5 @@
+<div id="story">
+  <% Story.last.lines.each do |line| %>
+    <span><%= line.content %></span>    
+  <% end %>
+</div>
