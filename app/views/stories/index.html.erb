@@ -1,10 +1,4 @@
 <p id="notice"><%= notice %></p>
-<script type="text/javascript">
-  setInterval(function() {
-    console.log("refreshing...");
-    location.reload();
-  }, 5000);
-</script>
 
 <div class="stories">
 
@@ -20,7 +14,7 @@
         
         <div class="story-inner">
           <% story.lines.each do |line| %>
-            <span class='line'><%= line.content %></span>
+            <span class='line' data-toggle='tooltip' title='Written by <%= line.user.name %>'><%= line.content %></span>
           <% end %>
         </div>
         
