@@ -8,6 +8,7 @@
 
 <div class="stories">
 
+
   <% @stories.each do |story| %>
     
     <div class="story">
@@ -16,9 +17,13 @@
         <div class="panel-heading">
           <h3 class="panel-title">story started <%= time_ago_in_words story.created_at %> ago</h3>
         </div>
-        <% story.lines.each do |line| %>
-          <%= line.content %>
-        <% end %>
+        
+        <div class="story-inner">
+          <% story.lines.each do |line| %>
+            <span class='line'><%= line.content %></span>
+          <% end %>
+        </div>
+        
         <br>
         <div class="btn-group">
           <%= link_to 'Show', story, :class => "btn btn-info" %>

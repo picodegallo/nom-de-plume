@@ -10,3 +10,4 @@
 * move phone numbers to application.yml
 * add a typewriter to the site with animations when a new message comes in
 * i made bootstrap.css filename `bootstrap3.css` because idk how to explain it wouldnt work otherwise the previous version was cached or something? idk
+* add instructions on how to start our application
