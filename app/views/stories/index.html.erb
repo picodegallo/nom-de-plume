@@ -1,10 +1,6 @@
 <p id="notice"><%= notice %></p>
-<script type="text/javascript">
-  setInterval(function() {
-    console.log("refreshing...");
-    location.reload();
-  }, 5000);
-</script>
+
+<p> <%=User.find(@story.next_user_id).name %></p>
 
 <div class="stories">
 

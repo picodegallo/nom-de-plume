@@ -6,8 +6,10 @@ class Sender
 	
 	def start_new_story
 		new_story = Story.new
-		new_story.story.lines.build(content: Line.random_opening_line)
+		new_story.lines.build(content: Line.random_opening_line)
+		new_story.next_user_id = @next_user.id
 		new_story.save
+		use_twilio(@next_user, new_story.lines.last.content)
 	end
 
 	def send_next_line
@@ -27,11 +29,7 @@ class Sender
 	end
 	
 	def send_command
-		if @received_text.content.match(/THE END$/)
-			find_next_user
-			use_twilio(@next_user, @story.lines.last.content)
-			start_new_story
-		elsif @received_text.content.match(/PASS$/)
+		if @received_text.content.match(/PASS$/)
 			find_next_user
 			use_twilio(@next_user, @story.lines.last.content)
 		else @received_text.content.match(/WTF$/)
@@ -41,14 +39,17 @@ class Sender
 	
 	def send_error
 		if @received_text.user.nil?
-			use_twilio(@received_text.user, "You're not signed up. Sign up via localhost: 3000")
+			use_twilio(@received_text, "You're not signed up. Sign up via localhost: 3000")
 		else # @received_text.user.id != @story.next_user_id
 			use_twilio(@received_text.user, "Wait your turn!")
 		end
 	end
 
 	def send_necessary_message
-		if @received_text.command?
+		if @received_text.content.match(/THE END$/)
+		find_next_user
+		start_new_story
+		elsif @received_text.command?
 			send_command
 		elsif @received_text.unacceptable?
 			send_error

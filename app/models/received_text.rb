@@ -16,7 +16,7 @@ class Received_text
 	end
 	
 	def command?
-		if @content.match(/THE END$/) || @content.match(/PASS$/) || @content.match(/WTF$/)
+		if @content.match(/PASS$/) || @content.match(/WTF$/)
 			true
 		else
 			false

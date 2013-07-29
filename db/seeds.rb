@@ -6,13 +6,13 @@ plume = User.create(
   :phone_number => "555 555 5555"
   )
 
-rlstine = User.create(
-  :name => "RL Stine",
-  :email => "rlstine@flatironschool.com",
-  :password =>'12345',
-  :password_confirmation => '12345',
-  :phone_number => "+16176407951"
-  )
+# rlstine = User.create(
+#   :name => "RL Stine",
+#   :email => "rlstine@flatironschool.com",
+#   :password =>'12345',
+#   :password_confirmation => '12345',
+#   :phone_number => "+16176407951"
+#   )
 
 # rlstine_goog = User.create(
 #   :name => "RL Stine2",
@@ -48,8 +48,7 @@ simone = User.create(
 
 story = Story.new
 story.lines.build(content: Line.random_opening_line)
-story.next_user_id = 2
+story.next_user_id = 3
 story.save
-
-Twilio::SMS.create :to => rlstine.phone_number, :from => ENV["TWILIO_NUMBER"],
+Twilio::SMS.create :to => ernest.phone_number, :from => ENV["TWILIO_NUMBER"],
                  :body => story.lines.first.content
