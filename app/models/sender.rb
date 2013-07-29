@@ -4,6 +4,12 @@ class Sender
 		@story = story
 	end
 	
+	def start_new_story
+		new_story = Story.new
+		new_story.story.lines.build(content: Line.random_opening_line)
+		new_story.save
+	end
+
 	def send_next_line
 		find_next_user
 		use_twilio(@next_user, @story.lines.last.content)
@@ -24,8 +30,7 @@ class Sender
 		if @received_text.content.match(/THE END$/)
 			find_next_user
 			use_twilio(@next_user, @story.lines.last.content)
-			# story = Story.new
-			# story.lines.build(content: Line.random_opening_line)
+			start_new_story
 		elsif @received_text.content.match(/PASS$/)
 			find_next_user
 			use_twilio(@next_user, @story.lines.last.content)
