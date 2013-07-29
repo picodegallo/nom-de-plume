@@ -1,31 +1,37 @@
 class MessageController < ApplicationController
   def receive
-
-    @user = User.where(phone_number: params["From"]).first
-
     @story = Story.last
     
-    next_user = (User.all - [@user] - [User.first]).sample
+    received_text = Received_text.new(params, @story)
+    received_text.persist_if_acceptable
     
-    @story.lines.build(content: params["Body"], user: @user) unless params["Body"] == "PASS" || params["Body"] == "HELP"
-    last_line = @story.lines.last.content
-    @line = @story.lines.last
-
-    if params["Body"].match(/THE END$/)
-      @story.end
-      Story.create_new_story(next_user)
-    elsif params["Body"].match(/PASS$/)
-      next_user = (User.all - [@user] - [User.first]).sample
-      @story.request_next_line(last_line, next_user)
-    elsif params["Body"].match(/WTF$/)
-      @story.help_message(@user)
+    if received_text.acceptable? && received_text.not_command?
+      message = {:channel => "/receive", :data => received_text.content}
     else
-      @story.request_next_line(last_line, next_user)
+      message = {:channel => "/receive", :data => ""}
     end
     
-    @story.save
+    sender = Sender.new(received_text, @story)
+    sender.send_necessary_message
 
-    message = {:channel => "/receive", :data => @line.content}
+    # @story.lines.build(content: params["Body"], user: @user) unless params["Body"] == "PASS" || params["Body"] == "HELP"
+    # last_line = @story.lines.last.content
+    # @line = @story.lines.last
+
+    # if params["Body"].match(/THE END$/)
+    #   @story.end
+    #   Story.create_new_story(next_user)
+    # elsif params["Body"].match(/PASS$/)
+    #   next_user = (User.all - [@user] - [User.first]).sample
+    #   @story.request_next_line(last_line, next_user)
+    # elsif params["Body"].match(/WTF$/)
+    #   @story.help_message(@user)
+    # else
+    #   @story.request_next_line(last_line, next_user)
+    # end
+    
+    # @story.save
+
     uri = URI.parse("http://localhost:9292/faye")
     Net::HTTP.post_form(uri, :message => message.to_json)
 

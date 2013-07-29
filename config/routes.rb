@@ -1,7 +1,7 @@
 NomDePlume::Application.routes.draw do
 
   root :to => 'stories#index'
-  get "message/receive"
+  # get "message/receive"
 
   get 'signup', to: 'users#new', as: 'signup'
 
