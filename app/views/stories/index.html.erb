@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
-
-<p> <%=User.find(@story.next_user_id).name %></p>
+<p> Waiting on ... <span id="next_user"><%=User.find(@story.next_user_id).name %></span></p>
 
 <div class="stories">
 
@@ -16,7 +15,7 @@
         
         <div class="story-inner">
           <% story.lines.each do |line| %>
-            <span class='line'><%= line.content %></span>
+            <span class='line' data-toggle='tooltip' title='Written by <%= line.user.name %>'><%= line.content %></span>
           <% end %>
         </div>
         

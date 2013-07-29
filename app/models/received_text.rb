@@ -27,9 +27,11 @@ class Received_text
 		!command?
 	end
 
-	def persist_if_acceptable
+	def persist_and_write_if_acceptable
 		if acceptable? && !command?
 			@story.lines.create(content: @content, user: @user)
+			# find_next_user
+	    WriteToSite.push_message(@content, @user.name, User.find(@story.next_user_id).name)
 		end
 	end
 end
