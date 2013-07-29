@@ -16,16 +16,13 @@
 //= require_tree .
 
 $.fn.highlightLine = function() {
-
-    $(this).on("mouseenter", function() {
-      $(this).css("color", "green");
-    });
-
-    $(this).on("mouseleave", function() {
-      $(this).css("color", "black");
-    });
-
-}
+  $(this).on("mouseenter", function() {
+    $(this).css("color", "green");
+  });
+  $(this).on("mouseleave", function() {
+    $(this).css("color", "black");
+  });
+};
 
 $(function() {
   var faye = new Faye.Client('http://localhost:9292/faye');
