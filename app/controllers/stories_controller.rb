@@ -2,9 +2,16 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all.reverse
+    # featured
     @story = Story.last
-    # debugger
+
+    # gallery
+    # next 9 stories go in gallery
+    @stories = Story.limit(10).find(:all).reverse.drop(1)
+
+    @author_photos = Dir.entries("app/assets/images/authors")
+                      .delete_if{|f| f[0] == "."}.shuffle
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @stories }

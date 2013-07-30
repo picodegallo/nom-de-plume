@@ -1,21 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <div class="story">
-
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">story started <%= time_ago_in_words @story.created_at %> ago</h3>
-    </div>
-    
-    <div class="story-inner">
-      <% @story.lines.each do |line| %>
-        <span class='line' data-toggle='tooltip' title='Written by <%= line.user.name %>'><%= line.content %></span>
-      <% end %>
-    </div>
-    
-    <br>
-
+  <p>story started <%= time_ago_in_words @story.created_at %> ago</p>
+  <div class="story-inner">
+    <% @story.lines.each do |line| %>
+      <span class='line' data-toggle='tooltip' title='Written by <%= line.user.name %>'><%= line.content %></span>
+    <% end %>
   </div>
-
-
 </div>

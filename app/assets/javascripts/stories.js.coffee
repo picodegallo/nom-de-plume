@@ -2,9 +2,9 @@
 # the @ is just a shorthand for "this"
 $.fn.highlightLine = ->
   $(@).on "mouseenter", ->
-    $(@).css "color", "green"
+    $(@).css "color", "#EF4B7E"
   $(@).on "mouseleave", ->
-    $(@).css "color", "black"
+    $(@).css "color", "white"
 
 # in case you forget what language you're writing in and do puts instead of console.log
 puts = (whatever) -> console.log whatever

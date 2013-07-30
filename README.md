@@ -24,6 +24,8 @@
     * add instructions on how to start our application to this readme
 * remove phone number column from line
 * user user_story table
+* make a note in gallery when stuff ended
+* make waiting on...'s dots animated
 
 ## DONE
 

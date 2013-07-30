@@ -2,9 +2,82 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
+$logo_width: 250px;
+$hot: #EF4B7E;
+$slate: #232C33;
+
+html, body {
   background: url(/assets/dark_pattern.png);
+  font-family: 'Montserrat', sans-serif;
+  color: white;
 }
-.jumbotron {
-  // background-color: green;
+.jumbotron {}
+
+.logo-container {
+  width: $logo_width;
+  margin: 0 auto;
+}
+.logo {
+  width: $logo_width;
+  height: auto;
+}
+
+.gallery {
+  background-color: $hot;
+  min-height: 700px;
+  padding-bottom: 50px;
+}
+
+.inner-gallery {
+  width: 88%;
+  margin: 0 auto;
+}
+
+.gallery-story {
+  margin: 15px;
+  background-color: white;
+  color: $slate;
+  padding: 0;
+}
+
+.gallery-inner-text {
+  padding: 5px;
+}
+
+.featured-story {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.featured-story-meta {
+  font-style: italic;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.story-inner {
+  width: 100%;
+  min-height: 225px;
+  font-size: 50pt;
+  font-weight: bold;
+  line-height: 1em;
+  text-align: center;
+  
+}
+
+a {
+  color: $slate;
+  &:hover {
+    color: $hot;
+    text-decoration: none;
+  }
+}
+
+.date-meta {
+  font-size: 0.8em;
+  color: #6A7984;
+}
+
+.author-profile {
+  width: 100%;
 }
