@@ -1,20 +1,31 @@
 <p id="notice"><%= notice %></p>
-<p> Waiting on ... <span id="next_user"><%=User.find(@story.next_user_id || 1).name %></span></p>
-
 <div class="featured-story">
-  <p>story started <%= time_ago_in_words(@story.created_at) %></p>
-  <div class="story-inner textfill">
+  <div class="story-inner">
     <% @story.lines.each do |line| %>
       <span class='line' data-toggle='tooltip' title='Written by <%= line.user.name %>'><%= line.content %></span>
     <% end %>
   </div>
+  <div class="featured-story-meta">
+    <p>Waiting on ... <span id="next_user"><%=User.find(@story.next_user_id || 1).name %></span></p>
+    <p>story started <%= time_ago_in_words(@story.created_at) %> ago</p>
+  </div>
 </div>
 
+
+
 <div class="gallery col-lg-12">
-  <% @stories.each do |story| %>
-    <div class="gallery-story col-lg-3">
-      <p>story started <%= time_ago_in_words story.created_at %> ago</p>
-      <p><%= story.lines.first.content %></p>
-    </div>
-  <% end %>
+  <div class="inner-gallery">
+    <h2>Gallery</h2>
+    <% @stories.each do |story| %>
+      <div class="gallery-story col-lg-3">
+        <div class="story-icon">
+          <span class="glyphicon glyphicon-fire"></span>
+        </div>
+        <p><%= story.lines.first.content %></p>
+        <p class="date-meta"><%= time_ago_in_words(story.created_at) %> ago</p>
+        <p><%= link_to "read more", story %></p>
+      </div>
+    <% end %>
+  </div>
+
 </div>

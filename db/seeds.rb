@@ -54,12 +54,12 @@ end
 lorem = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
 
 Story.all.each do |story|
-    story.lines.create(content: lorem, user: User.all.sample)
+  story.lines.create(content: lorem, user: User.all.sample)
 end
 
 story = Story.new
 story.lines.build(content: Line.random_opening_line, user: plume)
 story.next_user_id = 3
 story.save
-# Twilio::SMS.create :to => ernest.phone_number, :from => ENV["TWILIO_NUMBER"],
-#                  :body => story.lines.first.content
+Twilio::SMS.create :to => ernest.phone_number, :from => ENV["TWILIO_NUMBER"],
+                 :body => story.lines.first.content

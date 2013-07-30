@@ -14,7 +14,6 @@ $ ->
   # attach these things to all of the lines already on the page
   $(".line").tooltip()
   $(".line").highlightLine()
-  $('.textfill').fitText()
 
   # setup faye
   faye = new Faye.Client "http://localhost:9292/faye"

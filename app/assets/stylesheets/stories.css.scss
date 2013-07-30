@@ -4,6 +4,7 @@
 
 $logo_width: 250px;
 $hot: #EF4B7E;
+$slate: #232C33;
 
 html, body {
   background: url(/assets/dark_pattern.png);
@@ -24,20 +25,56 @@ html, body {
 .gallery {
   background-color: $hot;
   min-height: 700px;
+  padding-bottom: 50px;
+}
+
+.inner-gallery {
+  width: 88%;
+  margin: 0 auto;
 }
 
 .gallery-story {
-  border: 1px black solid;
   margin: 5px;
+  border-radius: 5px;
+  background-color: white;
+  color: $slate;
 }
 
 .featured-story {
-  
-  width: 100%;
-  height: 300px;
+  width: 70%;
+  margin: 0 auto;
 }
 
+.featured-story-meta {
+  font-style: italic;
+  text-align: center;
+  padding: 50px 0;
+}
 
+.story-inner {
+  width: 100%;
+  min-height: 225px;
+  font-size: 50pt;
+  font-weight: bold;
+  line-height: 1em;
+  text-align: center;
+  
+}
 
+a {
+  color: $slate;
+  &:hover {
+    color: $hot;
+    text-decoration: none;
+  }
+}
 
+.date-meta {
+  font-size: 0.8em;
+  color: #6A7984;
+}
 
+.story-icon {
+  text-align: center;
+  font-size: 5em;
+}
