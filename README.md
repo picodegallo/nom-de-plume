@@ -15,3 +15,4 @@
 
 
 * Seed opening line data, create OpeningLine model.
+* Show story pages
