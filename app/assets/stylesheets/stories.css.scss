@@ -34,10 +34,14 @@ html, body {
 }
 
 .gallery-story {
-  margin: 5px;
-  border-radius: 5px;
+  margin: 15px;
   background-color: white;
   color: $slate;
+  padding: 0;
+}
+
+.gallery-inner-text {
+  padding: 5px;
 }
 
 .featured-story {
@@ -74,7 +78,6 @@ a {
   color: #6A7984;
 }
 
-.story-icon {
-  text-align: center;
-  font-size: 5em;
+.author-profile {
+  width: 100%;
 }

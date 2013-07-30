@@ -16,14 +16,16 @@
 <div class="gallery col-lg-12">
   <div class="inner-gallery">
     <h2>Gallery</h2>
-    <% @stories.each do |story| %>
+    <% @stories.each_with_index do |story, index| %>
       <div class="gallery-story col-lg-3">
-        <div class="story-icon">
-          <span class="glyphicon glyphicon-fire"></span>
+        <%= image_tag "authors/#{@author_photos[index]}", :class => "author-profile" %>
+
+        <div class="gallery-inner-text">
+          <p><%= story.lines.first.content %></p>
+          <p class="date-meta"><%= time_ago_in_words(story.created_at) %> ago</p>
+          <p><%= link_to "read more", story %></p>
         </div>
-        <p><%= story.lines.first.content %></p>
-        <p class="date-meta"><%= time_ago_in_words(story.created_at) %> ago</p>
-        <p><%= link_to "read more", story %></p>
+        
       </div>
     <% end %>
   </div>
