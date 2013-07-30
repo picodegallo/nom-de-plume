@@ -1,32 +1,19 @@
 <p id="notice"><%= notice %></p>
 <p> Waiting on ... <span id="next_user"><%=User.find(@story.next_user_id || 1).name %></span></p>
 
-<div class="stories">
-
-
-  <% @stories.each do |story| %>
-    
-    <div class="story">
-
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">story started <%= time_ago_in_words story.created_at %> ago</h3>
-          <%= link_to 'Show', story, :class => "btn btn-info" %>
-        </div>
-        
-        <div class="story-inner">
-          <% story.lines.each do |line| %>
-            <span class='line' data-toggle='tooltip' title='Written by <%= line.user.name %>'><%= line.content %></span>
-          <% end %>
-        </div>
-        
-
-      </div>
-
-
-    </div>
-
-
+<div class="featured-story">
+  <p>story started <%= time_ago_in_words(@story.created_at) %></p>
+  <% @story.lines.each do |line| %>
+    <span class='line' data-toggle='tooltip' title='Written by <%= line.user.name %>'><%= line.content %></span>
   <% end %>
+</div>
 
+
+<div class="gallery col-lg-12">
+  <% @stories.each do |story| %>
+    <div class="gallery-story col-lg-3">
+      <p>story started <%= time_ago_in_words story.created_at %> ago</p>
+      <p><%= story.lines.first.content %></p>
+    </div>
+  <% end %>
 </div>

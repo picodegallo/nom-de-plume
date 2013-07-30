@@ -2,9 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
+$logo_width: 250px;
+$hot: #EF4B7E;
+
+html, body {
   background: url(/assets/dark_pattern.png);
+  font-family: 'Montserrat', sans-serif;
+  color: white;
 }
-.jumbotron {
-  // background-color: green;
+.jumbotron {}
+
+.logo-container {
+  width: $logo_width;
+  margin: 0 auto;
+}
+.logo {
+  width: $logo_width;
+  height: auto;
+}
+
+.gallery {
+  background-color: $hot;
+  min-height: 700px;
+}
+
+.gallery-story {
+  border: 1px black solid;
+  margin: 5px;
 }
