@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<p> Waiting on ... <span id="next_user"><%=User.find(@story.next_user_id).name %></span></p>
+<p> Waiting on ... <span id="next_user"><%=User.find(@story.next_user_id || 1).name %></span></p>
 
 <div class="stories">
 
