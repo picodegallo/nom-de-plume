@@ -17,6 +17,7 @@
         * the story
         * some analytics about the story
         * links to contributors' show pages
+    * story buttons "new", "edit", "delete" ... remove them...?
 * meta
     * make a speaker deck
     * move phone numbers to application.yml
