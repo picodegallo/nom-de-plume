@@ -46,6 +46,17 @@ simone = User.create(
   password_confirmation: "12345"
   )
 
+# seed data with stories and lines
+11.times do 
+  Story.create
+end
+
+lorem = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+
+Story.all.each do |story|
+    story.lines.create(content: lorem, user: User.all.sample)
+end
+
 story = Story.new
 story.lines.build(content: Line.random_opening_line, user: plume)
 story.next_user_id = 3
