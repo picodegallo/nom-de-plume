@@ -27,9 +27,10 @@ class Received_text
 		!command?
 	end
 
-	def persist_if_acceptable
-		if acceptable? && !command?
+	def persist_and_write_if_acceptable
+		if acceptable? && not_command?
 			@story.lines.create(content: @content, user: @user)
+	    WriteToSite.push_message(@content, @user.name, nil)
 		end
 	end
 end

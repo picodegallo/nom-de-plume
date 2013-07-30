@@ -6,7 +6,7 @@ class Sender
 	
 	def start_new_story
 		new_story = Story.new
-		new_story.lines.build(content: Line.random_opening_line)
+		new_story.lines.build(content: Line.random_opening_line, user: User.first)
 		new_story.next_user_id = @next_user.id
 		new_story.save
 		use_twilio(@next_user, new_story.lines.last.content)
@@ -26,6 +26,7 @@ class Sender
 		@next_user = (User.all - [@received_text.user] - [User.first]).sample
 		@story.next_user_id = @next_user.id
 		@story.save
+		WriteToSite.push_message(nil,nil,User.find(@story.next_user_id).name)
 	end
 	
 	def send_command
