@@ -22,6 +22,8 @@
     * make a speaker deck
     * move phone numbers to application.yml
     * add instructions on how to start our application to this readme
+* remove phone number column from line
+* user user_story table
 
 ## DONE
 

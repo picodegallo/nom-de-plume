@@ -9,46 +9,11 @@
 </head>
 <body>
 
-  <div class="navbar">
-    <div class="container">
-
-      <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-      <!-- Be sure to leave the brand out there if you want it shown -->
-      <%= link_to title, :root, :class => "navbar-brand" %>
-
-      <!-- Place everything within .navbar-collapse to hide it until above 768px -->
-      <div class="nav-collapse collapse navbar-responsive-collapse">
-        <ul class="nav navbar-nav">
-          <li><%= link_to "Stories", :root %></li>
-          <li><%= link_to "Users", users_path %></li>
-        </ul>
-        <ul class="nav navbar-nav pull-right">
-          <% if current_user %>
-            <li><%= link_to "Logout", logout_path %></li>
-            <p class="navbar-text pull-right"><%= current_user.name %></p>
-          <% else %>
-            <li><%= link_to "Login", login_path %></li>
-            <li><%= link_to "Sign up", new_user_path %></li>
-          <% end %>
-        </ul>
-      </div><!-- /.nav-collapse -->
-    </div><!-- /.container -->
-  </div><!-- /.navbar -->
+  <%#= render "layouts/nav" %>
 
 
+  <%#= render "layouts/text_in" %>
 
-  <div class="row">
-    <div class="col-12">
-      <div class="jumbotron">
-        <h2>Text in at (646) 863-5311</h2>
-      </div>
-    </div>
     
   </div>
 

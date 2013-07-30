@@ -2,5 +2,9 @@
 
 <h1><%= @user.name %></h1>
 
+<% @stories.each do |story| %>
+  <li><%= link_to "#{story.lines.first.content}...", story %></li>
+<% end %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
