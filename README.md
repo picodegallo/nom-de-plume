@@ -25,9 +25,7 @@
 * remove phone number column from line
 * user user_story table
 * make a note in gallery when stuff ended
-* phrase like "story from 2 months ago"
 * make waiting on...'s dots animated
-* white version of logo for hover
 
 ## DONE
 
