@@ -26,6 +26,7 @@ class Sender
 		@next_user = (User.all - [@received_text.user] - [User.first]).sample
 		@story.next_user_id = @next_user.id
 		@story.save
+		WriteToSite.push_message(nil,nil,User.find(@story.next_user_id).name)
 	end
 	
 	def send_command

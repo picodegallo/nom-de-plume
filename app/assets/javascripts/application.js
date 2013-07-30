@@ -27,12 +27,19 @@ $.fn.highlightLine = function() {
 $(function() {
   var faye = new Faye.Client('http://localhost:9292/faye');
   faye.subscribe('/receive', function (data) {
-    $("<span class='line' data-toggle='tooltip' title='Written by "+ data.author +"' >" + data.content + "</span>").appendTo(".story-inner:first");
-    console.log(data.next_user);
+    console.log("data object from websocket looks like...:");
     console.log(data);
-    $('#next_user').text(data.next_user);
-    $('.line').tooltip();
+    if (/THE END$/.test(data.content)) {
+      location.reload();
+    };
+    if (typeof data.content !== "undefined" && data.content !== null) {
+      $("<span class='line' data-toggle='tooltip' title='Written by "+ data.author +"' >" + data.content + "</span>").appendTo(".story-inner:first");
+      $('.line').tooltip();
     $('.line').highlightLine();
+    }
+    if (typeof data.next_user !== "undefined" && data.next_user !== null) {
+      $('#next_user').text(data.next_user);
+    };
   });
   $('.line').tooltip();
   $('.line').highlightLine();
