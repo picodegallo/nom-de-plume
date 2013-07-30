@@ -9,12 +9,13 @@
     </button>
 
     <!-- Be sure to leave the brand out there if you want it shown -->
-    <%= link_to title, :root, :class => "navbar-brand" %>
-
     <!-- Place everything within .navbar-collapse to hide it until above 768px -->
     <div class="nav-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Stories", :root %></li>
+        <li><%= link_to "Home", :root %></li>
+        <%if params[:action] == "index"%>
+          <li><%= link_to "Gallery", "/#gallery", :class => "scroll" %></li>
+        <%end%>
       </ul>
       <ul class="nav navbar-nav pull-right">
         <% if current_user %>

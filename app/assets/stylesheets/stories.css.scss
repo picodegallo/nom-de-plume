@@ -31,6 +31,9 @@ html, body {
 .inner-gallery {
   width: 100%;
   margin: 0 auto;
+  h2 {
+    text-align: center;
+  }
 }
 
 .random {
@@ -88,3 +91,24 @@ a {
   width: 100%;
 }
 
+.show-text {
+  text-align: left;
+  font-size: 30px;
+  width: 70%;
+  margin: 0 auto;
+  p {
+    margin-top: 10px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .show-text {
+    width: 100%;
+  }
+}
+
+.story-show {
+  width: 100%;
+  margin-bottom: 100px;
+}
