@@ -2,9 +2,9 @@
 # the @ is just a shorthand for "this"
 $.fn.highlightLine = ->
   $(@).on "mouseenter", ->
-    $(@).css "color", "green"
+    $(@).css "color", "#EF4B7E"
   $(@).on "mouseleave", ->
-    $(@).css "color", "black"
+    $(@).css "color", "white"
 
 # in case you forget what language you're writing in and do puts instead of console.log
 puts = (whatever) -> console.log whatever
@@ -14,6 +14,7 @@ $ ->
   # attach these things to all of the lines already on the page
   $(".line").tooltip()
   $(".line").highlightLine()
+  $('.textfill').fitText()
 
   # setup faye
   faye = new Faye.Client "http://localhost:9292/faye"

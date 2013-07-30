@@ -3,11 +3,12 @@
 
 <div class="featured-story">
   <p>story started <%= time_ago_in_words(@story.created_at) %></p>
-  <% @story.lines.each do |line| %>
-    <span class='line' data-toggle='tooltip' title='Written by <%= line.user.name %>'><%= line.content %></span>
-  <% end %>
+  <div class="story-inner textfill">
+    <% @story.lines.each do |line| %>
+      <span class='line' data-toggle='tooltip' title='Written by <%= line.user.name %>'><%= line.content %></span>
+    <% end %>
+  </div>
 </div>
-
 
 <div class="gallery col-lg-12">
   <% @stories.each do |story| %>
