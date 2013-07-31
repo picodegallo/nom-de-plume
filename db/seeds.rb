@@ -1,3 +1,7 @@
+OpeningLine.create(content: "He had the urge to look out and see nothing")
+OpeningLine.create(content: "She kept checking her phone")
+OpeningLine.create(content: "She was carried along by the crowd")
+
 plume = User.create(
   :name => "Admin",
   :email => "nomdeplume@flatironschool.com",
@@ -58,8 +62,8 @@ Story.all.each do |story|
 end
 
 story = Story.new
-story.lines.build(content: Line.random_opening_line, user: plume)
+story.lines.build(content: OpeningLine.all.sample, user: plume)
 story.next_user_id = 3
 story.save
-Twilio::SMS.create :to => ernest.phone_number, :from => ENV["TWILIO_NUMBER"],
-                 :body => story.lines.first.content
+# Twilio::SMS.create :to => ernest.phone_number, :from => ENV["TWILIO_NUMBER"],
+#                  :body => story.lines.first.content

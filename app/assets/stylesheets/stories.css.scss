@@ -11,7 +11,9 @@ html, body {
   font-family: 'Montserrat', sans-serif;
   color: white;
 }
-.jumbotron {}
+h1, h2, h3, h4, h5, h6 , p, li, label {
+  font-family: 'Montserrat', sans-serif;
+}
 
 .logo-container {
   width: $logo_width;
@@ -111,4 +113,8 @@ a {
 .story-show {
   width: 100%;
   margin-bottom: 100px;
+}
+
+#notice {
+  margin: 0 auto;
 }
