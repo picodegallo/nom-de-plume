@@ -26,6 +26,7 @@ gem 'localtunnel' #so twilio doesn't get mad
 gem 'twilio-rb'
 gem 'thin'
 gem 'figaro'
+gem 'better_errors'
 
 
 # To use ActiveModel has_secure_password
