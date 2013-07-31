@@ -11,11 +11,15 @@
 
 * test that the STOP logic works
     * some way to delete your account
+        * delete me button on user show page should work
+        * and only show to the right person
+        * and not anyone should be able to send a delete request and delete any user
 
 ## TODOS
 
 * figure out deploying
-    * errors in production?
+    * in production will errors be displayed?
+    * like, not that there will be errors
 * meta
     * move phone numbers to application.yml
     * add an about page
