@@ -5,7 +5,8 @@ class MessageController < ApplicationController
     received_text = Received_text.new(params, @story)
     received_text.persist_and_write_if_acceptable
     
-    TextSender.send_necessary_message(received_text, @story)
+    text_sender = TextSender.new
+    text_sender.send_necessary_message(received_text, @story)
     
   end
 end

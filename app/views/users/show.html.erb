@@ -2,14 +2,21 @@
   <div class="row">
     <div class="col-3"></div>
     <div class="col-6 user_show">
-      <p id="notice"><%= notice %></p>
 
       <h2><%= @user.name %>'s stories</h2>
 
       <% @stories.each do |story| %>
         <li><%= link_to "#{story.lines.first.content}...", story %><span class="glyphicon glyphicon-chevron-right"></span></li>
+      <% end %>
 
+      <% if current_user.id == params[:id].to_i %>
+        <%= link_to "DELETE MY ACCOUNT", user_path(current_user), :class => "btn btn-danger", :method => "DELETE" %>
       <% end %>
     </div>
+  
+
+
+    
+
   </div>
 </div>
