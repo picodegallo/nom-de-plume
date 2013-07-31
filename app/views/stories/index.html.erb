@@ -1,6 +1,5 @@
 
 <div class="featured-story">
-  <p id="notice"><%= notice %></p>
   <div class="story-inner">
     <% @story.lines.each do |line| %>
       <span class='line' data-toggle='tooltip' title='Written by <%= line.user.name %>'><%= line.content %></span>
