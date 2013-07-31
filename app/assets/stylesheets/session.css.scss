@@ -2,3 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.login-container {
+  width: 300px;
+  margin: 0 auto 50px auto;
+}
+.login {
+  background-color: #323E49;
+  padding: 25px;
+  border-radius: 8px;
+}
