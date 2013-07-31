@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
+
 <div class="featured-story">
+  <p id="notice"><%= notice %></p>
   <div class="story-inner">
     <% @story.lines.each do |line| %>
       <span class='line' data-toggle='tooltip' title='Written by <%= line.user.name %>'><%= line.content %></span>
@@ -13,21 +14,21 @@
 
 
 
-<div class="gallery col-lg-12">
+<div class="gallery col-lg-12" id="gallery">
   <div class="inner-gallery">
     <h2>Gallery</h2>
-    <% @stories.each_with_index do |story, index| %>
-      <div class="gallery-story col-lg-3">
-        <%= image_tag "authors/#{@author_photos[index]}", :class => "author-profile" %>
+      <% @stories.each_with_index do |story, index| %>
+        <div class="gallery-story col-lg-3">
+          <%= image_tag "authors/#{@author_photos[index]}", :class => "author-profile" %>
 
-        <div class="gallery-inner-text">
-          <p><%= story.lines.first.content %></p>
-          <p class="date-meta"><%= time_ago_in_words(story.created_at) %> ago</p>
-          <p><%= link_to "read more", story %></p>
+          <div class="gallery-inner-text">
+            <p><%= story.lines.first.content %></p>
+            <p class="date-meta"><%= time_ago_in_words(story.created_at) %> ago</p>
+            <p><%= link_to "read more", story %><span class="glyphicon glyphicon-chevron-right"></span></p>
+          </div>
+          
         </div>
-        
-      </div>
-    <% end %>
+      <% end %>
   </div>
 
 </div>

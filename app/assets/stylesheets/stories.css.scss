@@ -5,13 +5,32 @@
 $logo_width: 250px;
 $hot: #EF4B7E;
 $slate: #232C33;
+$rounding: 8px;
 
 html, body {
   background: url(/assets/dark_pattern.png);
   font-family: 'Montserrat', sans-serif;
   color: white;
 }
-.jumbotron {}
+h1, p, li, label {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'Damion', cursive;
+}
+
+h2 {
+  font-size: 5em;
+}
+
+.navbar {
+  color: $hot;
+}
+
+.phone_number {
+  // margin-left: 245px;
+}
 
 .logo-container {
   width: $logo_width;
@@ -29,19 +48,34 @@ html, body {
 }
 
 .inner-gallery {
-  width: 88%;
+  width: 100%;
+  margin: 0 auto;
+  h2 {
+    text-align: center;
+  }
+}
+
+.random {
+  width: 100%;
+  height: 500px;
   margin: 0 auto;
 }
 
 .gallery-story {
   margin: 15px;
+  width: 30%;
   background-color: white;
   color: $slate;
   padding: 0;
+  border-radius: $rounding;
+  img {
+    border-top-left-radius: $rounding;
+    border-top-right-radius: $rounding;
+  }
 }
 
 .gallery-inner-text {
-  padding: 5px;
+  padding: 9px;
 }
 
 .featured-story {
@@ -62,7 +96,6 @@ html, body {
   font-weight: bold;
   line-height: 1em;
   text-align: center;
-  
 }
 
 a {
@@ -80,4 +113,47 @@ a {
 
 .author-profile {
   width: 100%;
+}
+
+.show-text {
+  text-align: left;
+  font-size: 30px;
+  width: 70%;
+  margin: 0 auto;
+  p {
+    margin-top: 10px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .show-text {
+    width: 100%;
+  }
+}
+
+.story-show {
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+#notice {
+  margin: 0 auto;
+}
+
+.user_show {
+  // background-color: white;
+  border-radius: $rounding;
+  // opacity: 0.5;
+  h2 {
+    // color: $slate;
+    color: white;
+    font-size: 2em;
+  }
+  a {
+    color: white;
+    &:hover {
+      color: $hot;
+    }
+  }
 }
