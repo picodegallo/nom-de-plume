@@ -83,19 +83,19 @@ simone = User.create(
   )
 
 # seed data with stories and lines
-11.times do 
-  Story.create
-end
+# 11.times do 
+#   Story.create
+# end
 
-lorem = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+# lorem = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
 
-Story.all.each do |story|
-  story.lines.create(content: lorem, user: User.all.sample)
-end
+# Story.all.each do |story|
+#   story.lines.create(content: lorem, user: User.all.sample)
+# end
 
 story = Story.new
 story.lines.build(content: OpeningLine.random_line, user: plume)
 story.next_user_id = 3
 story.save
-# Twilio::SMS.create :to => ernest.phone_number, :from => ENV["TWILIO_NUMBER"],
-#                  :body => story.lines.first.content
+Twilio::SMS.create :to => ernest.phone_number, :from => ENV["TWILIO_NUMBER"],
+                 :body => story.lines.first.content
