@@ -2,7 +2,7 @@ class TextSender
 
 	def start_new_story
 		new_story = Story.new
-		new_story.lines.build(content: Line.random_opening_line, user: User.first)
+		new_story.lines.build(content: OpeningLine.random_line, user: User.first)
 		new_story.next_user_id = @next_user.id
 		new_story.save
 		use_twilio(@next_user, new_story.lines.last.content)
@@ -29,8 +29,14 @@ class TextSender
 		if @received_text.content.match(/PASS$/)
 			find_next_user
 			use_twilio(@next_user, @story.lines.last.content)
-		else @received_text.content.match(/WTF$/)
+		elsif @received_text.content.match(/WTF$/)
 			use_twilio(@received_text, "Continue the story! Or, you can type these commands: PASS to skip your turn. THE END to end current story")
+		elsif @received_text.content.match(/STOP$/)
+			if @received_text.story.next_user_id == @received_text.user.id
+				find_next_user
+				use_twilio(@next_user, @story.lines.last.content)
+			end
+			@received_text.user.delete
 		end
 	end
 	

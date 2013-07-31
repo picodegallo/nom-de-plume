@@ -24,7 +24,7 @@
           <div class="gallery-inner-text">
             <p><%= story.lines.first.content %></p>
             <p class="date-meta"><%= time_ago_in_words(story.created_at) %> ago</p>
-            <p><%= link_to "read more", story %></p>
+            <p><%= link_to "read more", story %><span class="glyphicon glyphicon-chevron-right"></span></p>
           </div>
           
         </div>

@@ -5,14 +5,31 @@
 $logo_width: 250px;
 $hot: #EF4B7E;
 $slate: #232C33;
+$rounding: 8px;
 
 html, body {
   background: url(/assets/dark_pattern.png);
   font-family: 'Montserrat', sans-serif;
   color: white;
 }
-h1, h2, h3, h4, h5, h6 , p, li, label {
+h1, p, li, label {
   font-family: 'Montserrat', sans-serif;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'Damion', cursive;
+}
+
+h2 {
+  font-size: 5em;
+}
+
+.navbar {
+  color: $hot;
+}
+
+.phone_number {
+  // margin-left: 245px;
 }
 
 .logo-container {
@@ -50,10 +67,15 @@ h1, h2, h3, h4, h5, h6 , p, li, label {
   background-color: white;
   color: $slate;
   padding: 0;
+  border-radius: $rounding;
+  img {
+    border-top-left-radius: $rounding;
+    border-top-right-radius: $rounding;
+  }
 }
 
 .gallery-inner-text {
-  padding: 5px;
+  padding: 9px;
 }
 
 .featured-story {
@@ -117,4 +139,21 @@ a {
 
 #notice {
   margin: 0 auto;
+}
+
+.user_show {
+  // background-color: white;
+  border-radius: $rounding;
+  // opacity: 0.5;
+  h2 {
+    // color: $slate;
+    color: white;
+    font-size: 2em;
+  }
+  a {
+    color: white;
+    &:hover {
+      color: $hot;
+    }
+  }
 }

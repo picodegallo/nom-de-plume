@@ -3,8 +3,6 @@
 ## TODOS
 
 * some way to delete your account
-* create OpeningLine model
-    * seed with interesting lines
 * figure out deploying
 * story show page
     * links to contributors' show pages
@@ -16,6 +14,8 @@
 * user user_story table
 * make a note in gallery when stuff ended
 * make waiting on...'s dots animated
+* add an about page
+* test that the STOP logic works
 
 ## DONE
 

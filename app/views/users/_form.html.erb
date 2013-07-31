@@ -1,4 +1,5 @@
 <div class="container sign-up-form col-12">
+  <h2>New user</h2>
   <%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
     <% if @user.errors.any? %>
       <div id="error_explanation">
@@ -14,7 +15,7 @@
       </div>
     <% end %>
       <div class="form-group">
-        <%= f.label :name, "Nom-de-plume", :class => "col-lg-3 control-label" %>
+        <%= f.label :name, "Nom de Plume", :class => "col-lg-3 control-label" %>
         <div class="col-lg-6">
           <%= f.text_field :name, :class => "form-control", :required => true %>
         </div>   
