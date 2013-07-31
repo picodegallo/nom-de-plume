@@ -1,5 +1,12 @@
 # nom de plume
 
+## starting server:
+
+* rails s
+* rackup faye.ru -s thin -E production
+* localtunnel 3000
+* copy the localtunnel URL into twilio
+
 ## TODOS
 
 * some way to delete your account
