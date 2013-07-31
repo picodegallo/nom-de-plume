@@ -17,6 +17,8 @@ set :use_sudo, false
 
 set :scm, :git
 
+load "config/recipes/faye"
+
 default_run_options[:pty] = true
 
 role :web, "192.241.168.144"                          # Your HTTP server, Apache/etc
