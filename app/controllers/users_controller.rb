@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         Twilio::SMS.create :to => @user.phone_number, :from => ENV["TWILIO_NUMBER"],
-                         :body => "Thanks for signing up. When it's your turn, text to continue the story! Or text WTF for commands"
+                         :body => "Thanks for signing up. On your turn, text to continue story,'PASS' to skip turn, or 'THE END' to end story."
         session[:user_id] = @user.id
         format.html { redirect_to '/stories', notice: 'User was successfully created.' }
         # format.json { render json: @user, status: :created, location: @user }
