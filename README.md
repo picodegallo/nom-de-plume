@@ -1,6 +1,7 @@
 # TODOS
 
 * add an about page
+* with "fork me on github" link to this repo
 * make a note in gallery when stuff ended
 * delete the TODOs from this README
 
@@ -8,7 +9,7 @@
 
 Nom de Plume is an anonymous, collaborative storytelling platform.
 
-It's live and playable at <http://address_goes_here.com>. This is the source code.
+It's live and playable at <http://192.241.168.144/>. This is the source code.
 
 One featured story at a time:
 
