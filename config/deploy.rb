@@ -17,7 +17,7 @@ set :use_sudo, false
 
 set :scm, :git
 
-load "config/recipes/faye"
+# load "config/recipes/faye"
 
 default_run_options[:pty] = true
 
