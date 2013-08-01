@@ -27,23 +27,31 @@ class TextSender
 	
 	def send_command
 		if @received_text.content.match(/PASS$/)
-			if @received_text.story.next_user_id == @received_text.user.id
-				find_next_user
-				use_twilio(@next_user, @story.lines.last.content)
-			else
-				use_twilio(@received_text.user, "Wait your turn!")
-			end
+			pass_command
 		elsif @received_text.content.match(/WTF$/)
 			use_twilio(@received_text, "Continue the story! Or, you can type these commands: PASS to skip your turn. THE END to end current story")
 		elsif @received_text.content.match(/STOP$/)
-			if @received_text.story.next_user_id == @received_text.user.id
-				find_next_user
-				use_twilio(@next_user, @story.lines.last.content)
-			end
-			@received_text.user.delete
+			delete_user
 		end
 	end
-	
+
+	def pass_command
+		if @received_text.story.next_user_id == @received_text.user.id
+			find_next_user
+			use_twilio(@next_user, @story.lines.last.content)
+		else
+			use_twilio(@received_text.user, "Wait your turn!")
+		end
+	end
+
+	def delete_user
+		if @received_text.story.next_user_id == @received_text.user.id
+				find_next_user
+				use_twilio(@next_user, @story.lines.last.content)
+		end
+			@received_text.user.delete
+	end
+
 	def send_error
 		if @received_text.user.nil?
 			use_twilio(@received_text, "You're not signed up. Sign up via localhost: 3000")
@@ -61,7 +69,7 @@ class TextSender
 		elsif @received_text.command?
 			send_command
 		elsif @received_text.unacceptable?
-			send_error
+			send_error	
 		else
 			send_next_line
 		end
