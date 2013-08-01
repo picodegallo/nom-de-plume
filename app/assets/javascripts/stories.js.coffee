@@ -30,7 +30,9 @@ $ ->
       location.reload() if /THE END\.?$/.test data.content
       # we assume it also has a key called author
       # and that we should append them to the first story
-      $("<span class='line' data-toggle='tooltip' title='Written by #{data.author}'>#{data.content}</span>")
+      # trying to sanitize...
+      content = $("<p>#{data.content}</p>").text()
+      $("<span class='line' data-toggle='tooltip' title='Written by #{data.author}'>#{content}</span>")
             .appendTo(".story-inner:first")
       # we need to attach our listeners to the newly-appended lines
       $('.line').tooltip()

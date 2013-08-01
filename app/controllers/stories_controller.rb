@@ -10,7 +10,7 @@ class StoriesController < ApplicationController
     @stories = Story.order("created_at DESC").limit(10).drop(1)
     @author_photos = Dir.entries("app/assets/images/authors")
                       .delete_if{|f| f[0] == "."}.shuffle
-    @deleted_user = User.new(name: 'user has withdrawn from the game')
+    @deleted_user = User.new(name: '[DELETED USER]')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -22,7 +22,7 @@ class StoriesController < ApplicationController
   # GET /stories/1.json
   def show
     @story = Story.find(params[:id])
-    @deleted_user = User.new(name: 'user has withdrawn from the game')
+    @deleted_user = User.new(name: '[DELETED USER]')
 
     respond_to do |format|
       format.html # show.html.erb
