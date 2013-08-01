@@ -1,42 +1,33 @@
-# nom de plume
+# Nom de Plume
 
-## starting server:
+Nom de Plume is an anonymous, collaborative storytelling platform.
 
-* rails s
-* rackup faye.ru -s thin -E production
-* localtunnel 3000
-* copy the localtunnel URL into twilio
+It's live and playable at <http://address_goes_here.com>. This is the source code.
 
-## need to test
+If you want to try running it, here are the many many steps:
+
+* clone the repo
+* `bundle install` to get the dependencies for the rails app
+* `gem install faye localtunnel thin` to get the remaining dependencies (overkill?)
+* register with twilio and get your phone number, SID, and token
+* create a file at `config/application.yml` with that information, which looks like this:
 
 
-    * some way to delete your account
-        * delete me button on user show page should work
-        * and only show to the right person
-        * and not anyone should be able to send a delete request and delete any user
+```yml
+TWILIO_SID: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+TWILIO_TOKEN: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+TWILIO_NUMBER: "+15555555555"
+```
+
+* `rails s` to start the server
+* `localtunnel 3000` to expose the rails app publicly
+* `rackup faye.ru -s thin -E production`
 
 ## TODOS
 
-*Faye integration
-*Deactive a user 
+* Faye integration
+* Deactive a user 
 * meta
     * move phone numbers to application.yml
     * add an about page
 * make a note in gallery when stuff ended
-
-
-
-## DONE
-
-* give list of commands at registration
-* if some rando texts in, reject it
-* text PASS to pass your turn
-* add instructions on how to start our application to this readme
-* remove phone number column from line
-* user user_story table
-* make a speaker deck
-* align forms for kristen
-* figure out deploying
-    * in production will errors be displayed?
-    * like, not that there will be errors
-* test that the STOP logic works
