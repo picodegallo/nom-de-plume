@@ -1,3 +1,4 @@
+# some opening lines
 "It was the trip of a lifetime, yet...
 Bacon sandwiches always reminded her...
 The fire was getting closer...
@@ -34,6 +35,7 @@ She was carried along by the crowd".split("\n").each do |line|
   OpeningLine.create(content: line)
 end
 
+# create an admin account
 plume = User.create(
   :name => "Nom de Plume",
   :email => "nomdeplume@flatironschool.com",
@@ -42,56 +44,19 @@ plume = User.create(
   :phone_number => "555 555 5555"
   )
 
-# rlstine = User.create(
-#   :name => "RL Stine",
-#   :email => "rlstine@flatironschool.com",
-#   :password =>'12345',
-#   :password_confirmation => '12345',
-#   :phone_number => "+16176407951"
-#   )
-
-# rlstine_goog = User.create(
-#   :name => "RL Stine2",
-#   :email => "rlstine2@flatironschool.com",
-#   :password =>'12345',
-#   :password_confirmation => '12345',
-#   :phone_number => "+19739785064"
-#   )
-
-jonathan = User.create(
-  name: "Jonathan Franzen",
-  phone_number: "+19144171895",
-  email: "franzen@flatironschool.com",
-  password: "12345",
-  password_confirmation: "12345"
-  )
-
-# ernest = User.create(
-#   name: "Hemingway",
-#   phone_number: "+15035377883",
-#   email: "hemingway@flatironschool.com",
-#   password: "12345",
-#   password_confirmation: "12345"
-#   )
-
 simone = User.create(
   name: "Simone de Beauvoir",
-  phone_number: "+13307036872",
+  phone_number: ENV["PERSONAL_NUMBER"],
   email: "simone@flatironschool.com",
   password: "12345",
   password_confirmation: "12345"
   )
 
-# seed data with stories and lines
-# 11.times do 
-#   s = Story.new
-#   s.lines.build(content: OpeningLine.random_line, user: User.all.sample)
-#   s.save
-# end
 
+# create a first story
 story = Story.new
 story.lines.build(content: OpeningLine.random_line, user: plume)
-story.next_user_id = 3
+story.next_user_id = simone.id
 story.save
 Twilio::SMS.create :to => simone.phone_number, :from => ENV["TWILIO_NUMBER"],
                  :body => story.lines.first.content

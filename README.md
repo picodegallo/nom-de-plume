@@ -1,10 +1,3 @@
-# TODOS
-
-* add an about page
-* with "fork me on github" link to this repo
-* make a note in gallery when stuff ended
-* delete the TODOs from this README
-
 # Nom de Plume
 
 Nom de Plume is an anonymous, collaborative storytelling platform.
@@ -23,7 +16,6 @@ If you want to try running it, here are the many many steps:
 
 * clone the repo
 * `bundle install` to get the dependencies for the rails app
-* `gem install faye localtunnel thin` to get the remaining dependencies (overkill?)
 * register with twilio and get your phone number, SID, and token
 * create a file at `config/application.yml` with that information, which looks like this:
 

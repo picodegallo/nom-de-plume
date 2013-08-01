@@ -22,12 +22,11 @@ end
 
 gem 'jquery-rails'
 gem 'localtunnel' #so twilio doesn't get mad
-# gem 'twilio-ruby' #offical twilio gem
 gem 'twilio-rb'
 gem 'thin'
 gem 'figaro'
 gem 'better_errors'
-
+gem 'faye'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -44,4 +43,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use debugger
 gem 'debugger'
 
-gem 'faye'
+
