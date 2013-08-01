@@ -9,7 +9,7 @@ NomDePlume::Application.routes.draw do
   post '/sessions', to: 'sessions#create', as: 'sessions'
   delete '/sessions/:id', to: 'sessions#destroy'
 
-  resources :users,   :except => [:index]
+  resources :users,   :except => [:index, :edit]
 
   resources :stories, :except => [:edit, :destroy, :new, :update]
 
