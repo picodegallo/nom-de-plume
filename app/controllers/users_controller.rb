@@ -77,8 +77,18 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) 
+    @story = Story.last 
+    if @story.next_user_id == @user.id
+      @next_user = (User.all - [@received_text.user] - [User.first]).sample
+      @story.next_user_id = @next_user.id
+      @story.save
+      WriteToSite.push_message(nil,nil,User.find(@story.next_user_id).name)
+      Twilio::SMS.create :to => @next_user.phone_number, :from => ENV["TWILIO_NUMBER"],
+                     :body => @story.lines.last.content
+    end
     @user.destroy if @user == current_user
     redirect_to logout_path
   end
 end
+
