@@ -27,8 +27,10 @@ class TextSender
 	
 	def send_command
 		if @received_text.content.match(/PASS$/)
-			find_next_user
-			use_twilio(@next_user, @story.lines.last.content)
+			if @received_text.story.next_user_id == @received_text.user.id
+				find_next_user
+				use_twilio(@next_user, @story.lines.last.content)
+			end
 		elsif @received_text.content.match(/WTF$/)
 			use_twilio(@received_text, "Continue the story! Or, you can type these commands: PASS to skip your turn. THE END to end current story")
 		elsif @received_text.content.match(/STOP$/)
