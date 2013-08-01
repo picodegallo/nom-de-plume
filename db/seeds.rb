@@ -66,13 +66,13 @@ jonathan = User.create(
   password_confirmation: "12345"
   )
 
-ernest = User.create(
-  name: "Hemingway",
-  phone_number: "+15035377883",
-  email: "hemingway@flatironschool.com",
-  password: "12345",
-  password_confirmation: "12345"
-  )
+# ernest = User.create(
+#   name: "Hemingway",
+#   phone_number: "+15035377883",
+#   email: "hemingway@flatironschool.com",
+#   password: "12345",
+#   password_confirmation: "12345"
+#   )
 
 simone = User.create(
   name: "Simone de Beauvoir",
@@ -83,17 +83,15 @@ simone = User.create(
   )
 
 # seed data with stories and lines
-11.times do 
-  s = Story.new
-  s.lines.build(content: OpeningLine.random_line, user: User.all.sample)
-  s.save
-end
+# 11.times do 
+#   s = Story.new
+#   s.lines.build(content: OpeningLine.random_line, user: User.all.sample)
+#   s.save
+# end
 
 story = Story.new
-20.times do
-  story.lines.build(content: OpeningLine.random_line, user: plume)
-end
+story.lines.build(content: OpeningLine.random_line, user: plume)
 story.next_user_id = 3
 story.save
-# Twilio::SMS.create :to => ernest.phone_number, :from => ENV["TWILIO_NUMBER"],
-#                  :body => story.lines.first.content
+Twilio::SMS.create :to => simone.phone_number, :from => ENV["TWILIO_NUMBER"],
+                 :body => story.lines.first.content

@@ -7,8 +7,7 @@ class StoriesController < ApplicationController
 
     # gallery
     # next 9 stories go in gallery
-    @stories = Story.limit(10).find(:all).reverse.drop(1)
-
+    @stories = Story.order("created_at DESC").limit(10).drop(1)
     @author_photos = Dir.entries("app/assets/images/authors")
                       .delete_if{|f| f[0] == "."}.shuffle
 
