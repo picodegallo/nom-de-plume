@@ -2,7 +2,7 @@
 <div class="featured-story">
   <div class="story-inner">
     <% @story.lines.each do |line| %>
-      <span class='line' data-toggle='tooltip' title='Written by <%= line.user.name %>'><%= line.content %></span>
+      <span class='line' data-toggle='tooltip' title='Written by <%= (line.user || User.new(name: 'user has withdrawn from the game')).name %>'><%= line.content %></span>
     <% end %>
   </div>
   <div class="featured-story-meta">
