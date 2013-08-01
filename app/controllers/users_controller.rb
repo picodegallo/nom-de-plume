@@ -88,7 +88,7 @@ class UsersController < ApplicationController
                      :body => @story.lines.last.content
     end
     @user.destroy if @user == current_user
-    redirect_to logout_path
+    redirect_to root_path
   end
 end
 
