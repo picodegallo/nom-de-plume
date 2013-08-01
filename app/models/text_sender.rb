@@ -64,7 +64,7 @@ class TextSender
 	def send_necessary_message(received_text, story)
 		@received_text = received_text
 		@story = story
-		if @received_text.content.match(/THE END$/)
+		if @received_text.content.match(/THE END\.?$/)
 			find_next_user
 			start_new_story
 		elsif @received_text.unacceptable?

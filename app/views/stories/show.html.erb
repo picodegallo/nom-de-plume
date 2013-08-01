@@ -2,7 +2,7 @@
 
   <div class="show-text">
     <% @story.lines.each do |line| %>
-      <span class='line' data-toggle='tooltip' title='Written by <%= (line.user || User.new(name: 'user has withdrawn from the game')).name %>'><%= line.content %></span>
+      <span class='line' data-toggle='tooltip' title='Written by <%= (line.user || @deleted_user).name %>'><%= line.content %></span>
     <% end %>
   	<p>story started <%= time_ago_in_words @story.created_at %> ago</p>
   </div>

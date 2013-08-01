@@ -27,7 +27,7 @@ $ ->
     # if the data object has a key called "content"...
     if data.content?
       # refresh page if the content ends with THE END
-      location.reload() if /THE END$/.test data.content
+      location.reload() if /THE END\.?$/.test data.content
       # we assume it also has a key called author
       # and that we should append them to the first story
       $("<span class='line' data-toggle='tooltip' title='Written by #{data.author}'>#{data.content}</span>")
