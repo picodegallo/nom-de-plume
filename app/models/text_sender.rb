@@ -30,6 +30,8 @@ class TextSender
 			if @received_text.story.next_user_id == @received_text.user.id
 				find_next_user
 				use_twilio(@next_user, @story.lines.last.content)
+			else
+				use_twilio(@received_text.user, "Wait your turn!")
 			end
 		elsif @received_text.content.match(/WTF$/)
 			use_twilio(@received_text, "Continue the story! Or, you can type these commands: PASS to skip your turn. THE END to end current story")
