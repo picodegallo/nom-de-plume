@@ -16,7 +16,7 @@ $ ->
   $(".line").highlightLine()
 
   # setup faye
-  faye = new Faye.Client "http://localhost:9292/faye"
+  faye = new Faye.Client "http://192.241.168.144:9292/faye"
   faye.subscribe "/receive", (data) ->
     # this function is called whenever a message is sent to the front end
     # let's just output it to see what it looks like
