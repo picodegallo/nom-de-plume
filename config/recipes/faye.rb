@@ -1,3 +1,7 @@
+def set_default(name, *args, &block)
+  set(name, *args, &block) unless exists?(name)
+end
+
 set_default(:faye_user) { user }
 set_default(:faye_pid) { "#{current_path}/tmp/pids/faye.pid" }
 
