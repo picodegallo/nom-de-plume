@@ -9,7 +9,7 @@
 
 Nom de Plume is an anonymous, collaborative storytelling platform.
 
-It's live and playable at <http://192.241.168.144/>. This is the source code.
+It's live and playable at <http://secretstorytime.com/>. This is the source code.
 
 One featured story at a time:
 
