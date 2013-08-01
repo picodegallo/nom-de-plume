@@ -9,7 +9,7 @@
 
 ## need to test
 
-* test that the STOP logic works
+
     * some way to delete your account
         * delete me button on user show page should work
         * and only show to the right person
@@ -17,14 +17,14 @@
 
 ## TODOS
 
-* figure out deploying
-    * in production will errors be displayed?
-    * like, not that there will be errors
+*Faye integration
+*Deactive a user 
 * meta
     * move phone numbers to application.yml
     * add an about page
 * make a note in gallery when stuff ended
-* align forms for kristen
+
+
 
 ## DONE
 
@@ -35,3 +35,8 @@
 * remove phone number column from line
 * user user_story table
 * make a speaker deck
+* align forms for kristen
+* figure out deploying
+    * in production will errors be displayed?
+    * like, not that there will be errors
+* test that the STOP logic works

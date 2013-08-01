@@ -17,6 +17,7 @@ $ ->
 
   # setup faye
   faye = new Faye.Client "http://192.241.168.144:9292/faye"
+  faye.setHeader 'Access-Control-Allow-Origin', '*'
   faye.subscribe "/receive", (data) ->
     # this function is called whenever a message is sent to the front end
     # let's just output it to see what it looks like

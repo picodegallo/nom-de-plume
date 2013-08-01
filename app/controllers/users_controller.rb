@@ -89,7 +89,7 @@ class UsersController < ApplicationController
     end
     @user.destroy if @user == current_user
     redirect_to logout_path
-    
   end
+
 end
 
