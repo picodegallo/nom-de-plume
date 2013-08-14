@@ -19,7 +19,7 @@ class TextSender
 	end
 	
 	def find_next_user
-		@next_user = (User.all - [@received_text.user] - [User.first]).sample
+		@next_user = (User.find(15,32,33,34) - [@received_text.user] - [User.first]).sample
 		@story.next_user_id = @next_user.id
 		@story.save
 		WriteToSite.push_message(nil,nil,User.find(@story.next_user_id).name)
